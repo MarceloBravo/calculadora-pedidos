@@ -1,0 +1,20 @@
+package com.ejemplo;
+
+/**
+ * Servicio para calcular el total de un pedido.
+ */
+public class PedidoService {
+    /**
+     * Calcula el total a pagar por un pedido, considerando descuento y tipo de envío.
+     *
+     * @param subtotal Monto base del pedido
+     * @param aplicaDescuento Si aplica un descuento del 10%
+     * @param envioExpress Si el envío es express (20.0) o estándar (10.0)
+     * @return Total a pagar
+     */
+    public double calcularTotal(double subtotal, boolean aplicaDescuento, boolean envioExpress) {
+        double descuento = aplicaDescuento ? 0.1 : 0; // 10% de descuento si aplica
+        double envio = envioExpress ? 20.0 : 10.0;    // Costo de envío según tipo
+        return (subtotal * (1 - descuento)) + envio;  // Total final
+    }
+}

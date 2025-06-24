@@ -1,0 +1,14 @@
+name: Pruebas Unitarias Java # Nombre del workflow
+on: [push, pull_request] # Ejecutar en push o pull request
+jobs:
+  test:
+    runs-on: ubuntu-latest # Usar runner Ubuntu
+    steps:
+      - uses: actions/checkout@v3 # Clona el repositorio
+      - name: Instalar JDK # Instala el JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # Distribución de Java
+          java-version: '17'      # Versión de Java
+      - name: Ejecutar pruebas # Ejecuta los tests
+        run: mvn test
